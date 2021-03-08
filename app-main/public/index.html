@@ -1,0 +1,67 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: wanghongkui
+ * @Date: 2021-03-01 15:36:20
+ * @LastEditTime: 2021-03-08 11:31:04
+-->
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <noscript>
+      <strong
+        >We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to
+        continue.</strong
+      >
+    </noscript>
+    <script src="https://cdn.jsdelivr.net/npm/systemjs/dist/system.js"></script>
+    <!-- 处理umd模块 -->
+    <script src="https://cdn.bootcss.com/systemjs/6.2.6/extras/amd.js"></script>
+    <div id="app"></div>
+
+    <!-- built files will be auto injected -->
+    <!-- import maps  development模式-->
+    <% const version = new Date().getTime() %> <% if (NODE_ENV === 'development') {%>
+    <!--  配置导入映射的，模块必须符合以下三种规范之一:
+      1. System.register - https://github.com/systemjs/systemjs/blob/master/docs/system-register.md
+      2. UMD （ 推荐 ）
+      3. Global variable
+    -->
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.11",
+          "vue-router": "https://unpkg.com/vue-router@3.2.0/dist/vue-router.js",
+          "vuex": "https://unpkg.com/vuex@3.4.0",
+          "lodash": "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js",
+          "dayjs": "https://unpkg.com/dayjs@1.8.21/dayjs.min.js",
+          "app-demo1": "http://localhost:8992/js/app.js?time=<%=version%>"
+        }
+      }
+    </script>
+
+    <!-- import maps production/test模式 -->
+    <%} else {%>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "vue": "https://cdn.jsdelivr.net/npm/vue@2.6.11",
+          "vue-router": "https://unpkg.com/vue-router@3.2.0/dist/vue-router.js",
+          "vuex": "https://unpkg.com/vuex@3.4.0",
+          "lodash": "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js",
+          "dayjs": "https://unpkg.com/dayjs@1.8.21/dayjs.min.js",
+          "app-demo1": "/app1/js/app.js?time=<%=version%>"
+        }
+      }
+    </script>
+
+    <%}%>
+  </body>
+</html>
