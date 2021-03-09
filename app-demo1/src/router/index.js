@@ -3,7 +3,7 @@
  * @version:
  * @Author: wanghongkui
  * @Date: 2021-03-01 15:40:03
- * @LastEditTime: 2021-03-04 16:05:28
+ * @LastEditTime: 2021-03-09 17:45:16
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -31,7 +31,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: 'app1',
+  base: '/app1',
   routes
 });
 

@@ -3,7 +3,7 @@
  * @version:
  * @Author: wanghongkui
  * @Date: 2021-03-02 15:17:24
- * @LastEditTime: 2021-03-05 18:17:46
+ * @LastEditTime: 2021-03-08 15:57:06
  */
 
 const packageName = require('./package.json').name;
@@ -14,7 +14,7 @@ module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/app-demo2' : 'http://localhost:8993',
   configureWebpack: (config) => {
     config.output.libraryTarget = 'umd'; // 打包格式为umd 配合模块加载工具加载项目
-    // config.output.library = packageName;
+    config.output.library = packageName;
     config.output.jsonpFunction = `webpackJsonp_${packageName}`;
     // 删除chunk-vendors.js文件，公共三方模块打包进app.js文件
     config.optimization.splitChunks.cacheGroups = {};

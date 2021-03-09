@@ -3,7 +3,7 @@
  * @version:
  * @Author: wanghongkui
  * @Date: 2021-03-02 18:13:53
- * @LastEditTime: 2021-03-05 15:47:20
+ * @LastEditTime: 2021-03-09 17:55:34
  */
 import { registerApplication, start } from 'single-spa';
 
@@ -72,7 +72,7 @@ configProject.forEach((element) => {
   registerApplication(element);
 });
 export function appStart() {
-  // 在调用 start 之前, 应用会被加载, 但不会初始化，挂载或卸载。暴露出这个方法是为了优化项目性能。
+  // 在调用 start 之前, 应用会被加载, 但不会初始化，挂载或卸载。暴露出这个方法是可以控制子应用的激活时机，优化项目性能。
   // 比如我们一般需要登录成功之后，才会去加载子项目
   return start();
 }

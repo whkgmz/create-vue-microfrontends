@@ -3,7 +3,7 @@
  * @version:
  * @Author: wanghongkui
  * @Date: 2021-03-01 15:48:22
- * @LastEditTime: 2021-03-04 11:08:31
+ * @LastEditTime: 2021-03-09 17:03:34
  */
 import Vue from 'vue';
 import VueRouter from 'vue-router';
@@ -29,7 +29,7 @@ const routes = [
 
 const router = new VueRouter({
   mode: 'history',
-  base: 'app2',
+  base: '/app2',
   routes
 });
 
